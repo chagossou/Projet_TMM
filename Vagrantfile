@@ -27,5 +27,10 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
       sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
       sudo chmod +x /usr/local/bin/docker-compose 
+
+      # Récupération du fichier docker-compose
+      git clone https://github.com/chagossou/Projet_TMM.git 
+      cd Projet_TMM
+      docker-compose -d
    SHELL
 end
