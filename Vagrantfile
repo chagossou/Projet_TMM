@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
    
   #
    config.vm.provider "virtualbox" do |vb|
-      config.vm.network "private_network", type: "dhcp"
+      config.vm.network "private_network", ip: "192.168.56.102"
    config.vm.provision "docker"
    config.vm.provision "shell", inline: <<-SHELL
       sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
