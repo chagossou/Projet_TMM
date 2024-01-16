@@ -33,4 +33,5 @@ Vagrant.configure("2") do |config|
       cd Projet_TMM
       docker-compose -d
    SHELL
+   end
 end
