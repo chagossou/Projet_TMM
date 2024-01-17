@@ -5,7 +5,7 @@ services:
           restart: always
           volumes:
             - db_data:/var/lib/mysql
-          envireonment:
+          environment:
             MYSQL_ROOT_PASSWORD: charly
             MYSQL_DATABASE: charlyDB
             MYSQL_USER: charly
