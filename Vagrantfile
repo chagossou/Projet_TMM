@@ -8,22 +8,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-
-   
+ 
   #
   # config.vm.provider "virtualbox" do |vb|
-   #config.vm.network "private_network", type: "dhcp", name: "VirtualBox Host-Only Ethernet Adapter"
-     
+   #config.vm.network "private_network", ip: "192.168.56.105", virtualbox__intnet: true
+   config.vm.network "private_network", type: "dhcp", netmask: "255.255.255.0", dhcp_ip:"192.168.56.100", dhcp_lower: "192.168.56.101", :dhcp_upper=>"192.168.56.254"  
    config.vm.provision "docker"
    config.vm.provision "shell", inline: <<-SHELL
       sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
