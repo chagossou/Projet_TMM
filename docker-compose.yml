@@ -1,7 +1,6 @@
 versions: "3.9"
 services:
-	# Service mysql pour la BDD
-	db:
+      db:
           image: mysql
           restart: always
           volumes:
@@ -11,9 +10,8 @@ services:
             MYSQL_DATABASE: charlyDB
             MYSQL_USER: charly
             MYSQL_PASSWORD: charly
-      
-        #Service Wordpress
-        wordpress:
+
+      wordpress:
           image: wordpress
           restart: always
           ports:
@@ -25,8 +23,7 @@ services:
             WORDPRESS_DB_USER: charly
             WORDPRESS_DB_PASSWORD: charly
             WORDPRESS_DB_NAME: charlyDB
-              #         volumes:
-              #  - db_data:/var/www/html/
+              
 
 volumes:
   db_data: 

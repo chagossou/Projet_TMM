@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
 
    
   #
-   config.vm.provider "virtualbox" do |vb|
-      config.vm.network "private_network", ip: "192.168.56.102"
+  # config.vm.provider "virtualbox" do |vb|
+   #config.vm.network "private_network", type: "dhcp", name: "VirtualBox Host-Only Ethernet Adapter"
      
    config.vm.provision "docker"
    config.vm.provision "shell", inline: <<-SHELL
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
       # Récupération du fichier docker-compose
       git clone https://github.com/chagossou/Projet_TMM.git 
       cd Projet_TMM
-      docker-compose -d
+      docker-compose up -d
    SHELL
-   end
+   #end
 end
